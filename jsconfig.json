@@ -4,6 +4,7 @@
     "module": "esnext",
     "baseUrl": "./",
     "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": false, //vue 파일 이름만 바꿨을때 에러
     "paths": {
       "@/*": [
         "src/*"

@@ -1,18 +1,30 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div v-for="(data, idx) in backData" v-bind:key="data.no">
+      <span>No.{{idx}}_</span>
+      <template v-if="idx=== 5">
+        <div>5번 인덱스 if절 test >>> {{data.contents}}</div>
+
+      </template>
+      <span v-html="data.contents"></span>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'HomeView',
+  computed : {
+    backData(){
+      return this.$store.state.backData;
+    }
+  },
   components: {
-    HelloWorld
+  },
+  created(){
+    this.$store.dispatch('getDummy');
   }
 }
 </script>
